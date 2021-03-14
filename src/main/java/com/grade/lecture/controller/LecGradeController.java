@@ -65,7 +65,7 @@ public class LecGradeController {
 
     //先通过查询获取到之前的数据，查到之后存在lecture中，通过控制层跳转到editLecture页面，
     // 执行编辑操作，接着再重定向控制层的路径返回到页面上
-    @RequestMapping("/editPag")
+    @RequestMapping("/editPage/{id}")
     String edit(@PathVariable String id, Model model) {
         model.addAttribute("lecture", lectureGradeService.findOne(id));
         return "aduc/lec_grade/editLecture";

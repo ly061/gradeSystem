@@ -68,7 +68,7 @@ public class ActGradeController {
     }
 
     //修改
-    @RequestMapping("/editPage")
+    @RequestMapping("/editPage/{id}")
     String editPage(@PathVariable String id,Model model) {
         model.addAttribute("active", activeGradeService.queryOne(id));
         return "aduc/active_score/editActive";

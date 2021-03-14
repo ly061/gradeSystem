@@ -64,7 +64,7 @@ public class InnoGradeController  {
       return CommonUtil.delActives(request);
     }
 
-    @RequestMapping("/editPage")
+    @RequestMapping("/editPage/{id}")
     String editPage(String id, Model model) {
         InnoGrade innoGrade = innoGradeService.findOne(id);
         model.addAttribute("inno", innoGrade);

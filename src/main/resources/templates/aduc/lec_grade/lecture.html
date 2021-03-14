@@ -22,7 +22,7 @@
             <ul class="search">
                 <li>
                     <a class="btn btn-outline-info btn-sm" th:onload="review()">刷新</a>
-                    <a class="btn btn-outline-info btn-sm" th:href="@{/lec/addPag}">添加</a>
+                    <a class="btn btn-outline-info btn-sm" th:href="@{/lec/addPage}">添加</a>
                     <a class="btn btn-outline-info btn-sm" id="btn">全选</a>
                     <a class="btn btn-outline-info btn-sm" th:onclick="delMany()">批量删除</a>
                 </li>
@@ -31,26 +31,28 @@
         <table class="table table-hover text-center">
             <tr>
                 <td>序号</td>
-                <th>学号</th>
-                <th>姓名</th>
-                <th>篇数</th>
-                <th>时间</th>
-                <th>已修分数</th>
-                <th>未修分数</th>
+                <th>材料编号</th>
+                <th>材料类型</th>
+                <th>材料名称</th>
+                <th>材料内容</th>
+                <th>日期</th>
+                <th>材料等级</th>
+                <th>材料分值</th>
                 <th aria-colspan="2">操作</th>
             </tr>
             <tr th:each="one:${PageInfo.list}">
                 <th><input type="checkbox" th:text="${one.id}" th:value="${one.id}" name="id[]"/></th>
                 <td th:text="${one.id}"></td>
                 <td th:text="${one.lecId}"></td>
+                <td th:text="${one.lecVar}"></td>
                 <td th:text="${one.lecName}"></td>
-                <td th:text="${one.lecNum}"></td>
+                <td th:text="${one.lecContent}"></td>
                 <td th:text="${one.lecDate}"></td>
-                <td th:text="${one.lecTotal}"></td>
-                <td th:text="${one.lecDebt}"></td>
+                <td th:text="${one.lecRank}"></td>
+                <td th:text="${one.lecValue}"></td>
                 <td>
                     <div class="button-group">
-                        <a class="btn btn-outline-primary btn-sm" th:href="@{/lec/editPag/}+${one.id}">
+                        <a class="btn btn-outline-primary btn-sm" th:href="@{/lec/editPage/}+${one.id}">
                             <span class="icon-edit"></span>编辑
                         </a>
                         <a class="btn btn-outline-danger btn-sm" href="javascript:void(0)"
@@ -64,10 +66,10 @@
                 <td colspan="12">
                     <p>当前第 <span th:text="${PageInfo.pageNum}"></span> 页,总共 <span th:text="${PageInfo.pages}"></span> 页,共 <span th:text="${PageInfo.total}"></span> 条记录</p>
                     <div class="pagelist">
-                        <a th:href="@{/lec/showLecture}">首页</a>
-                        <a th:href="@{/lec/showLecture(pageNum=${PageInfo.hasPreviousPage}?${PageInfo.prePage}:1)}">上一页</a>
-                        <a th:href="@{/lec/showLecture(pageNum=${PageInfo.hasNextPage}?${PageInfo.nextPage}:${PageInfo.pages})}">下一页</a>
-                        <a th:href="@{/lec/showLecture(pageNum=${PageInfo.pages})}">尾页</a></div>
+                        <a th:href="@{/lec/showAllLecture}">首页</a>
+                        <a th:href="@{/lec/showAllLecture(pageNum=${PageInfo.hasPreviousPage}?${PageInfo.prePage}:1)}">上一页</a>
+                        <a th:href="@{/lec/showAllLecture(pageNum=${PageInfo.hasNextPage}?${PageInfo.nextPage}:${PageInfo.pages})}">下一页</a>
+                        <a th:href="@{/lec/showAllLecture(pageNum=${PageInfo.pages})}">尾页</a></div>
                 </td>
             </tr>
         </table>

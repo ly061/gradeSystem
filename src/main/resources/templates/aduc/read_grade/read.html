@@ -22,7 +22,7 @@
             <ul class="search">
                 <li>
                     <a class="btn btn-outline-info btn-sm" th:onload="review()">刷新</a>
-                    <a class="btn btn-outline-info btn-sm" th:href="@{/read/addPag}">添加</a>
+                    <a class="btn btn-outline-info btn-sm" th:href="@{/read/addPage}">添加</a>
                     <a class="btn btn-outline-info btn-sm" id="btn">全选</a>
                     <a class="btn btn-outline-info btn-sm" th:onclick="delMany()">批量删除</a>
                 </li>
@@ -52,7 +52,7 @@
                 <td th:text="${one.bookDebt}"></td>
                 <td>
                     <div class="button-group">
-                        <a class="btn btn-outline-primary btn-sm" th:href="@{/read/editPag/}+${one.id}">
+                        <a class="btn btn-outline-primary btn-sm" th:href="@{/read/editPage/}+${one.id}">
                             <span class="icon-edit"></span>编辑
                         </a>
                         <a class="btn btn-outline-danger btn-sm" href="javascript:void(0)"

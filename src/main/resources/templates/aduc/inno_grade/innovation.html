@@ -17,14 +17,14 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/inno/delInnos}" id="deleteMany">
+<form method="post" th:action="@{/inno/delGrades}" id="deleteMany">
     <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder"> 创新创业学分管理</strong></div>
         <div class="padding border-bottom">
             <ul class="search">
                 <li>
                     <a class="btn btn-outline-info btn-sm" th:onload="review()">刷新</a>
-                    <a class="btn btn-outline-info btn-sm" th:href="@{/inno/addPag}">添加</a>
+                    <a class="btn btn-outline-info btn-sm" th:href="@{/inno/addPage}">添加</a>
                     <a class="btn btn-outline-info btn-sm" id="btn">全选</a>
                     <a class="btn btn-outline-info btn-sm" th:onclick="delMany()">批量删除</a>
                    </li>
@@ -33,25 +33,29 @@
         <table class="table table-hover text-center">
             <tr>
                 <td>序号</td>
+                <td>材料编号</td>
+                <td>材料类型</td>
                 <th>材料名称</th>
-                <th>类型</th>
-                <th>等级</th>
-                <th>日期</th>
-                <th>已修分数</th>
-                <th>未修分数</th>
+                <th>材料内容</th>
+                <th>材料日期</th>
+                <th>材料级别</th>
+                <th>材料等级</th>
+                <th>分值</th>
                 <th aria-colspan="2">操作</th>
             </tr>
             <tr th:each="one:${PageInfo.list}">
                 <td><input type="checkbox" th:text="${one.id}" name="id[]" th:value="${one.id}"/></td>
-                <td th:text="${one.innoName}"></td>
+                <td th:text="${one.innoId}"></td>
                 <td th:text="${one.innoVar}"></td>
-                <td th:text="${one.innoRank}"></td>
+                <td th:text="${one.innoName}"></td>
+                <td th:text="${one.innoContent}"></td>
                 <td th:text="${one.innoDate}"></td>
-                <td th:text="${one.innoTotal}"></td>
-                <td th:text="${one.innoDebt}"></td>
+                <td th:text="${one.innoRank}"></td>
+                <td th:text="${one.innoLevel}"></td>
+                <td th:text="${one.innoValue}"></td>
                 <td>
                     <div class="button-group">
-                        <a class="btn btn-outline-primary btn-sm" th:href="@{/inno/editPag/}+${one.id}">
+                        <a class="btn btn-outline-primary btn-sm" th:href="@{/inno/editPage/}+${one.id}">
                             <span class="icon-edit"></span>编辑
                         </a>
                         <a class="btn btn-outline-danger btn-sm" href="javascript:void(0)"
@@ -65,10 +69,10 @@
                 <td colspan="12">
                     <p>当前第 <span th:text="${PageInfo.pageNum}"></span> 页,总共 <span th:text="${PageInfo.pages}"></span> 页,共 <span th:text="${PageInfo.total}"></span> 条记录</p>
                     <div class="pagelist">
-                        <a th:href="@{/inno/showInno}">首页</a>
-                        <a th:href="@{/inno/showInno(pageNum=${PageInfo.hasPreviousPage}?${PageInfo.prePage}:1)}">上一页</a>
-                        <a th:href="@{/inno/showInno(pageNum=${PageInfo.hasNextPage}?${PageInfo.nextPage}:${PageInfo.pages})}">下一页</a>
-                        <a th:href="@{/inno/showInno(pageNum=${PageInfo.pages})}">尾页</a></div>
+                        <a th:href="@{/inno/showAllInno}">首页</a>
+                        <a th:href="@{/inno/showAllInno(pageNum=${PageInfo.hasPreviousPage}?${PageInfo.prePage}:1)}">上一页</a>
+                        <a th:href="@{/inno/showAllInno(pageNum=${PageInfo.hasNextPage}?${PageInfo.nextPage}:${PageInfo.pages})}">下一页</a>
+                        <a th:href="@{/inno/showAllInno(pageNum=${PageInfo.pages})}">尾页</a></div>
                 </td>
             </tr>
         </table>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="renderer" content="webkit">
     <script th:src="@{/static/js/jquery.js}"></script>
     <script th:src="@{/static/js/pintuer.js}"></script>
@@ -17,34 +17,50 @@
 <body>
 
 <div class="panel admin-panel">
-    <div class="panel-head"><strong><span class="icon-pencil-square-o"></span>修改数据</strong></div>
+    <div class="panel-head"><strong><span class="icon-pencil-square-o"></span>新增阅读学分材料信息</strong></div>
     <div class="panel-body">
         <form th:action="@{lec/editLecture}" class="form-x" method="post">
             <input name="id" type="hidden" th:value="${lecture.id}"/>
             <div class="form-group">
                 <div class="label">
-                    <label>学号：</label>
+                    <label>材料编号：</label>
                 </div>
                 <div>
-                    <input type="text" class="input w-50" th:value="${lecture.lecId}" name="lecId" data-validate="required:请输入学号" />
+                    <input type="text" class="input w-50" th:value="${lecture.lecId}" name="lecId"
+                           data-validate="required:请输入材料编号"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>姓名：</label>
+                    <label>材料类型：</label>
                 </div>
-                <div>
-                    <input type="text" class="input w-50" th:value="${lecture.lecName}" name="lecName" data-validate="required:请输入姓名" />
+                <div class="field">
+                    <select name="lecVar" class="input w-50">
+                        <option value="请选择类型">请选择材料类型</option>
+                        <option th:selected="${lecture.lecVar eq '阅读著作'}" value="阅读著作">阅读著作</option>
+                        <option th:selected="${lecture.lecVar eq '阅读学术论文'}" value="阅读学术论文">阅读学术论文</option>
+                    </select>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>篇数：</label>
+                    <label>材料名称：</label>
                 </div>
                 <div>
-                    <input type="text" class="input w-50" th:value="${lecture.lecNum}" name="lecNum" data-validate="required:请输入数量" />
+                    <input type="text" class="input w-50" th:value="${lecture.lecName}" name="lecName"
+                           data-validate="required:请输入材料名称"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>材料内容：</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" th:value="${lecture.lecContent}" name="lecContent"
+                           data-validate="required:请输入材料内容"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -53,49 +69,70 @@
                     <label>日期：</label>
                 </div>
                 <div>
-                    <input type="text" class="layui-input" id="i1" th:value="${lecture.lecDate}" placeholder="yyyy-MM-dd" name="lecDate" style="height:30px;width:180px;" data-validate="required:日期不能为空" />
+                    <input type="date" class="layui-input" id="i1" placeholder="yyyy-MM-dd"
+                           th:value="${lecture.lecDate}" name="lecDate" style="height:30px;width:180px;"
+                           data-validate="required:日期不能为空"/>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>已修分数：</label>
+                    <label>级别：</label>
                 </div>
-                <div>
-                    <input type="text" class="input w50" th:value="${lecture.lecTotal}" name="lecTotal"/>
+                <div class="field">
+                    <select name="lecRank" class="input w-50">
+                        <option value="请选择级别">请选择级别</option>
+                        <option th:selected="${lecture.lecRank eq '国家级'}" value="国家级">国家级</option>
+                        <option th:selected="${lecture.lecRank eq '省级'}" value="省级">省级</option>
+                        <option th:selected="${lecture.lecRank eq '市级'}" value="市级">市级</option>
+                        <option th:selected="${lecture.lecRank eq '校级'}" value="校级">校级</option>
+                        <option th:selected="${lecture.lecRank eq '院级'}" value="院级">院级</option>
+                    </select>
                     <div class="tips"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>未修分数：</label>
+                    <label>分值：</label>
                 </div>
-                <div>
-                    <input type="text" class="input w50" th:value="${lecture.lecDebt}" name="lecDebt" />
+                <div class="field">
+                    <select name="lecValue" class="input w-50">
+                        <option value="请选择分值">请选择分值</option>
+                        <option th:selected="${lecture.lecValue eq '5分'}" value="5分">5分</option>
+                        <option th:selected="${lecture.lecValue eq '3分'}" value="3分">3分</option>
+                        <option th:selected="${lecture.lecValue eq '2分'}" value="2分">2分</option>
+                        <option th:selected="${lecture.lecValue eq '1分'}" value="1分">1分</option>
+                        <option th:selected="${lecture.lecValue eq '0.5分'}" value="0.5分">0.5分</option>
+                    </select>
                     <div class="tips"></div>
                 </div>
             </div>
 
-            <input type="submit" class="btn btn-outline-success btn-sm" th:value="修改">
+            <input type="submit" class="btn btn-outline-success btn-sm" th:onclick="click()" th:value="编辑">
             <input type="button" class="btn btn-outline-success btn-sm" th:onclick="back()" th:value="返回">
         </form>
 
-
     </div>
-
 </div>
 
 <script th:inline="javascript">
+
     function back() {
         window.history.go(-1);
     }
 
-    //日期控件
+    function click() {
+        window.location.href = 'aduc/lec_grade/lecture';
+    }
+
     laydate.render({
-        elem:"#i1",
-        type:'date'
+        elem: "#i1",
+        type: 'date'
     })
 
+
 </script>
+
+
 </body>
 </html>

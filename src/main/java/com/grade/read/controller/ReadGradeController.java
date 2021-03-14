@@ -60,7 +60,7 @@ public class ReadGradeController {
     return CommonUtil.delActives(req);
     }
 
-    @RequestMapping("/editPag")
+    @RequestMapping("/editPage")
     String edit(@PathVariable String id, Model model) {
         model.addAttribute("read", readGradeService.findOne(id));
         return "aduc/read_grade/editRead";

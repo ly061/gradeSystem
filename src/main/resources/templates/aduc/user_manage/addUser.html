@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title>Title</title>
+    <script th:src="@{/static/js/jquery.js}"></script>
+    <script th:src="@{/static/js/pintuer.js}"></script>
+    <script th:src="@{/static/js/laydate.js}"></script>
+    <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/static/css/admin.css}" rel="stylesheet">
+    <link th:href="@{/static/css/layui.css}" rel="stylesheet">
+    <link th:href="@{/static/css/laydate.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong><span class="icon-pencil-square-o"></span>增加学生数据</strong></div>
+    <div class="panel-body">
+        <form th:action="@{/user/addUser}" class="form-x" method="post">
+            <div class="form-group">
+                <div class="label">
+                    <label>学号:</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="stuNum" data-validate="required:请输入学号"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>密码:</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="userPwd" data-validate="required:请输入密码"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>姓名:</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="stuName" data-validate="required:请输入名字"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>性别:</label>
+                </div>
+                <div>
+                    男：<input type="radio"  name="stuSex" value="男" data-validate="required:请选择"/>
+                    女：<input type="radio"  name="stuSex" value="女" data-validate="required:请选择"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-outline-success btn-sm" th:value="添加">
+            <input type="button" class="btn btn-outline-success btn-sm" th:onclick="back()" th:value="返回">
+        </form>
+
+
+    </div>
+
+</div>
+
+<script th:inline="javascript">
+    //返回
+    function back() {
+        window.history.go(-1);
+    }
+
+</script>
+
+</body>
+</html>

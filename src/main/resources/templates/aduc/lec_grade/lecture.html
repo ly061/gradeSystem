@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <script th:src="@{/static/js/jquery.js}"></script>
+    <script th:src="@{/static/js/pintuer.js}"></script>
+    <script th:src="@{/static/js/laydate.js}"></script>
+    <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/static/css/admin.css}" rel="stylesheet">
+    <link th:href="@{/static/css/layui.css}" rel="stylesheet">
+    <link th:href="@{/static/css/laydate.css}" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/lec/delGrades}" id="deleteMany">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong class="icon-reorder"> 讲座学分</strong></div>
+        <div class="padding border-bottom">
+            <ul class="search">
+                <li>
+                    <a class="btn btn-outline-info btn-sm" th:onload="review()">刷新</a>
+                    <a class="btn btn-outline-info btn-sm" th:href="@{/lec/addPag}">添加</a>
+                    <a class="btn btn-outline-info btn-sm" id="btn">全选</a>
+                    <a class="btn btn-outline-info btn-sm" th:onclick="delMany()">批量删除</a>
+                </li>
+            </ul>
+        </div>
+        <table class="table table-hover text-center">
+            <tr>
+                <td>序号</td>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>篇数</th>
+                <th>时间</th>
+                <th>已修分数</th>
+                <th>未修分数</th>
+                <th aria-colspan="2">操作</th>
+            </tr>
+            <tr th:each="one:${PageInfo.list}">
+                <th><input type="checkbox" th:text="${one.id}" th:value="${one.id}" name="id[]"/></th>
+                <td th:text="${one.id}"></td>
+                <td th:text="${one.lecId}"></td>
+                <td th:text="${one.lecName}"></td>
+                <td th:text="${one.lecNum}"></td>
+                <td th:text="${one.lecDate}"></td>
+                <td th:text="${one.lecTotal}"></td>
+                <td th:text="${one.lecDebt}"></td>
+                <td>
+                    <div class="button-group">
+                        <a class="btn btn-outline-primary btn-sm" th:href="@{/lec/editPag/}+${one.id}">
+                            <span class="icon-edit"></span>编辑
+                        </a>
+                        <a class="btn btn-outline-danger btn-sm" href="javascript:void(0)"
+                           th:onclick="del([[${one.id}]])">
+                            <span class="icon-trash-o"></span> 删除
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12">
+                    <p>当前第 <span th:text="${PageInfo.pageNum}"></span> 页,总共 <span th:text="${PageInfo.pages}"></span> 页,共 <span th:text="${PageInfo.total}"></span> 条记录</p>
+                    <div class="pagelist">
+                        <a th:href="@{/lec/showLecture}">首页</a>
+                        <a th:href="@{/lec/showLecture(pageNum=${PageInfo.hasPreviousPage}?${PageInfo.prePage}:1)}">上一页</a>
+                        <a th:href="@{/lec/showLecture(pageNum=${PageInfo.hasNextPage}?${PageInfo.nextPage}:${PageInfo.pages})}">下一页</a>
+                        <a th:href="@{/lec/showLecture(pageNum=${PageInfo.pages})}">尾页</a></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<script th:inline="javascript">
+    function del(id) {
+        if (confirm("确定要删除吗？？？")) {
+            $.ajax({
+                url: [[@{/lec/delGrade/}]],
+                method: "post",
+                data: {
+                "id":id
+            },
+            success: function(data) {
+                if (data.status == "200") {
+                    alert(data.message);
+                    location.reload();
+                } else {
+                    alert("删除失败！！！")
+                }
+            }
+        });
+        }
+    }
+
+    //批量删除
+    function delMany() {
+        if (confirm("确定要批量删除所选项吗?")) {
+            $("#deleteMany").submit();
+        }
+    }
+
+    $("#btn").click(function () {
+        $("input[name='id[]']").each(function () {
+            if (this.checked) {
+                this.checked = false;
+            } else {
+                this.checked = true;
+            }
+        });
+    })
+
+        //刷新
+        function review() {
+            location.reload();
+        }
+</script>
+</body>
+</html>

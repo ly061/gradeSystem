@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <script th:src="@{/static/js/jquery.js}"></script>
+    <script th:src="@{/static/js/pintuer.js}"></script>
+    <script th:src="@{/static/js/laydate.js}"></script>
+    <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/static/css/admin.css}" rel="stylesheet">
+    <link th:href="@{/static/css/layui.css}" rel="stylesheet">
+    <link th:href="@{/static/css/laydate.css}" rel="stylesheet">
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong><span class="icon-pencil-square-o"></span>增加数据</strong></div>
+    <div class="panel-body">
+        <form th:action="@{/read/addRead}" class="form-x" method="post">
+            <div class="form-group">
+                <div class="label">
+                    <label>数量:</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="bookNum" data-validate="required:请输入数量"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>书名:</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="bookName" data-validate="required:请输入书名"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>出版社:</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="bookCbs" data-validate="required:请输入出版社"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>作者:</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="bookAuthor" data-validate="required:请输入作者"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>日期：</label>
+                </div>
+                <div>
+                    <input type="text" class="layui-input" id="i1" placeholder="yyyy-MM-dd" name="bookDate"
+                           style="height:30px;width:180px;" data-validate="required:日期不能为空"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>已修分数：</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="bookTotal"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>未修分数：</label>
+                </div>
+                <div>
+                    <input type="text" class="input w-50" name="bookDebt"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-outline-success btn-sm" th:value="添加">
+            <input type="button" class="btn btn-outline-success btn-sm" th:onclick="back()" th:value="返回">
+        </form>
+    </div>
+
+</div>
+
+<script th:inline="javascript">
+    function back() {
+        window.history.go(-1);
+    }
+
+    laydate.render({
+        elem:"#i1",
+        type:'date'
+    })
+
+</script>
+
+
+</body>
+</html>

@@ -28,13 +28,13 @@ public class ActGradeController {
         List<ActiveGradePo> activeGradePos = activeGradeService.queryAll();
         PageInfo<ActiveGradePo> asPageInfo = new PageInfo<>(activeGradePos);
         model.addAttribute("PageInfo", asPageInfo);
-        return "aduc/active_score/active";
+        return "aduc/active_grade/active";
     }
 
     //增加  通过控制层跳页面
     @RequestMapping("/addPage")
     String addPage() {
-        return "aduc/active_score/addActive";
+        return "aduc/active_grade/addActive";
     }
 
     //页面写的都是控制层的路径，不能页面跳页面
@@ -71,7 +71,7 @@ public class ActGradeController {
     @RequestMapping("/editPage/{id}")
     String editPage(@PathVariable String id,Model model) {
         model.addAttribute("active", activeGradeService.queryOne(id));
-        return "aduc/active_score/editActive";
+        return "aduc/active_grade/editActive";
     }
 
     @RequestMapping("/editActive")

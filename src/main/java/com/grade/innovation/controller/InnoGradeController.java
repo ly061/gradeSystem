@@ -65,7 +65,7 @@ public class InnoGradeController  {
     }
 
     @RequestMapping("/editPage/{id}")
-    String editPage(String id, Model model) {
+    String editPage(Model model, @PathVariable String id) {
         InnoGrade innoGrade = innoGradeService.findOne(id);
         model.addAttribute("inno", innoGrade);
         return "aduc/inno_grade/editInno";

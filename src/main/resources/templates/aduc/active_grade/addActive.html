@@ -220,16 +220,13 @@
                     <div class="col-lg-12">
                         <div class="tab-content">
                             <div class="tab-pane active">
-                                <form th:action="@{/act/addPage}" class="form-x" method="post">
+                                <form th:action="@{/aduc/active_grade/addActive}" class="form-x" method="post">
                                     <div class="form-group">
                                             <label>材料编号:</label>
                                             <input type="text" class="input w-50" value="" name="actId" data-validate="required:请输入材料编号"/>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料类型:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actVar" class="input w-50">
                                                 <option value="">请选择类型</option>
                                                 <option value="思想政治教育">思想政治教育</option>
@@ -237,42 +234,22 @@
                                                 <option value="社团及课外活动">社团及课外活动</option>
                                                 <option value="志愿者服务活动">志愿者服务活动</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料名称:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" value="" name="actName" data-validate="required:请输入材料名称"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料内容:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" value="" name="actContent" data-validate="required:请输入材料内容"/>
-                                            <div class="tips"></div>
                                         </div>
-                                    </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>日期:</label>
-                                        </div>
-                                        <div>
                                             <input type="date" class="layui-input" id="i1" placeholder="yyyy-MM-dd" name="actDate"
                                                    style="height:30px;width:180px;" data-validate="required:日期不能为空"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料级别:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actRank" class="input w-50">
                                                 <option value="请选择级别">请选择级别</option>
                                                 <option value="国家级">国家级</option>
@@ -281,14 +258,9 @@
                                                 <option value="校级">校级</option>
                                                 <option value="院级">院级</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料等级:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actLevel" class="input w-50">
                                                 <option value="请选择等级">请选择等级</option>
                                                 <option value="特等奖">特等奖</option>
@@ -297,14 +269,9 @@
                                                 <option value="三等奖">三等奖</option>
                                                 <option value="参赛奖">参赛奖</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料分值:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actValue" class="input w-50">
                                                 <option value="请选择分值">请选择分值</option>
                                                 <option value="5分">5分</option>
@@ -313,8 +280,6 @@
                                                 <option value="1分">1分</option>
                                                 <option value="0.5分">0.5分</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <input type="submit" class="btn btn-outline-success btn-sm" th:value="添加" th:onclick="click()">
                                     <input type="button" class="btn btn-outline-success btn-sm" th:onclick="back()" th:value="返回">
@@ -340,7 +305,7 @@
     })
 
     function click() {
-        window.location.href = '/act/showAllActive';
+        window.location.href = '/active_grade/showAllActive';
     }
 
 </script>

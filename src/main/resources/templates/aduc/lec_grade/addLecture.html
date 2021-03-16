@@ -221,19 +221,11 @@
                             <div class="tab-pane active">
                                 <form th:action="@{/lec/addPage}" class="form-x" method="post">
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料编号:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" value="" name="lecId" data-validate="required:请输入材料编号" />
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料类型:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="lecVar" class="input w-50">
                                                 <option value="请选择类型">请选择类型</option>
                                                 <option value="力学">力学</option>
@@ -242,41 +234,21 @@
                                                 <option value="理学">理学</option>
                                                 <option value="建筑学">建筑学</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料名称:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" value="" name="lecName" data-validate="required:请输入材料名称"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料内容:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" value="" name="lecContent" data-validate="required:请输入材料内容"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>日期:</label>
-                                        </div>
-                                        <div>
                                             <input type="date" class="layui-input" id="i1" placeholder="yyyy-MM-dd" name="lecDate" style="height:30px;width:180px;" data-validate="required:日期不能为空" />
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>级别:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="lecRank" class="input w-50">
                                                 <option value="请选择级别">请选择级别</option>
                                                 <option value="国家级">国家级</option>
@@ -285,15 +257,10 @@
                                                 <option value="校级">校级</option>
                                                 <option value="院级">院级</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>分值:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="lecValue" class="input w-50">
                                                 <option value="请选择分值">请选择分值</option>
                                                 <option value="0.5分">0.5分</option>
@@ -302,8 +269,6 @@
                                                 <option value="0.2分">0.2分</option>
                                                 <option value="0.1分">0.1分</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
 
                                     <input type="submit" class="btn btn-outline-success btn-sm" th:value="添加" th:onclick="click()">

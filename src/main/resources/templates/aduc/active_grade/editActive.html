@@ -223,10 +223,7 @@
                                 <form th:action="@{/act/editPage/id}" class="form-x" method="post">
                                     <input type="hidden" th:value="${active.id}" name="id"/>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料类型：</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actVar" class="input w-50">
                                                 <option value="请选择类型">请选择类型</option>
                                                 <option th:selected="${active.actVar eq '思想政治教育'}" value="思想政治教育">
@@ -242,46 +239,26 @@
                                                     志愿者服务活动
                                                 </option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料名称：</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" th:value="${active.actName}"
                                                    name="actName"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料内容：</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" th:value="${active.actContent}"
                                                    name="actName"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>日期：</label>
-                                        </div>
-                                        <div>
                                             <input type="date" class="layui-input" id="i1" th:value="${active.actDate}"
                                                    placeholder="yyyy-MM-dd"
                                                    name="actDate" style="height:30px;width:180px;"
                                                    data-validate="required:日期不能为空"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料级别：</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actRank" class="input w50">
                                                 <option value="请选择级别">请选择级别</option>
                                                 <option th:selected="${active.actRank eq '国家级'}" value="国家级">国家级
@@ -291,14 +268,9 @@
                                                 <option th:selected="${active.actRank eq '校级'}" value="校级">校级</option>
                                                 <option th:selected="${active.actRank eq '院级'}" value="院级">院级</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料等级：</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actLevel" class="input w-50">
                                                 <option value="请选择等级">请选择等级</option>
                                                 <option th:selected="${active.actLevel eq '特等奖'}" value="特等奖">特等奖
@@ -312,14 +284,9 @@
                                                 <option th:selected="${active.actLevel eq '参赛奖'}" value="参赛奖">参赛奖
                                                 </option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料分值：</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="actValue" class="input w-50">
                                                 <option value="请选择分值">请选择分值</option>
                                                 <option th:selected="${active_actValue eq '5分'}" value="5分">5分</option>
@@ -329,8 +296,6 @@
                                                 <option th:selected="${active_actValue eq '0.5分'}" value="0.5分">0.5分
                                                 </option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
 
                                     <input type="submit" class="btn btn-outline-success btn-sm" th:onclick="click()"

@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CommonUtil {
     @Autowired
@@ -23,7 +26,6 @@ public class CommonUtil {
     ReadGradeService readGradeService;
 
     //批量删除
-
     public static ResultInfo delActives(HttpServletRequest request) {
         String[] ids = request.getParameterValues("id[]");
         int num = 0;

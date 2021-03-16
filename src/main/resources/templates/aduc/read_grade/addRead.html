@@ -221,20 +221,12 @@
                             <div class="tab-pane active">
                                 <form th:action="@{/read/addPage}" class="form-x" method="post">
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料编号:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" name="readId"
                                                    data-validate="required:请输入材料编号"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料类型:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="readVar" class="input w-50">
                                                 <option value="">请选择类型</option>
                                                 <option value="外国文学">外国文学</option>
@@ -242,45 +234,25 @@
                                                 <option value="现代文学">现代文学</option>
                                                 <option value="小说类">小说类</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料名称:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" name="readName"
                                                    data-validate="required:请输入材料名称"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料内容:</label>
-                                        </div>
-                                        <div>
                                             <input type="text" class="input w-50" name="readContent"
                                                    data-validate="required:请输入材料内容"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>日期:</label>
-                                        </div>
-                                        <div>
                                             <input type="date" class="layui-input" id="i1" placeholder="yyyy-MM-dd"
                                                    name="readDate"
                                                    style="height:30px;width:180px;" data-validate="required:日期不能为空"/>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>材料等级:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="readRank" class="input w-50">
                                                 <option value="请选择等级">请选择等级</option>
                                                 <option value="一级">一级</option>
@@ -288,14 +260,9 @@
                                                 <option value="三级">三级</option>
                                                 <option value="业余">业余</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="label">
                                             <label>分值:</label>
-                                        </div>
-                                        <div class="field">
                                             <select name="readValue" class="input w-50">
                                                 <option value="请选择分值">请选择分值</option>
                                                 <option value="0.1分">0.1分</option>
@@ -303,8 +270,6 @@
                                                 <option value="0.03分">0.03分</option>
                                                 <option value="0.01分">0.01分</option>
                                             </select>
-                                            <div class="tips"></div>
-                                        </div>
                                     </div>
 
                                     <input type="submit" class="btn btn-outline-success btn-sm" th:onclick="click()"

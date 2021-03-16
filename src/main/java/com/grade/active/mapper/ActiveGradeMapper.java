@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface ActiveGradeMapper {
 
-    @Insert("insert into act_grade values(null,#{act_id},#{act_var},#{act_name},#{act_content},#{act_date},#{act_rank},#{act_level},#{act_value})")
+    @Insert("insert into act_grade (id,act_id,act_var,act_name,act_content,act_date,act_rank,act_level,act_value) values (null,#{actId},#{actName},#{actVar},#{actContent},#{actDate},#{actRank},#{actLevel},#{actValue})")
     int addActGrade(ActiveGradePo activeGradePo);
 
     @Delete("delete from act_grade where id=#{id}")

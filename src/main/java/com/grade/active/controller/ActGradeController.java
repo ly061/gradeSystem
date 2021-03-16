@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping("/act")
+@RequestMapping("/active_grade")
 public class ActGradeController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class ActGradeController {
     //页面写的都是控制层的路径，不能页面跳页面
     //通过addPag跳到"aduc/addActive"页面执行添加方法，页面的表单携带数据根据addActive路径，
     // 执行路径下的添加方法，并重定向通过控制层路径回到页面展示
-    @RequestMapping("/addActive")
+    @RequestMapping("/active_grade/addActive")
     ResultInfo addAct(ActiveGradePo activeGradePo) {
         int count = activeGradeService.addActGrade(activeGradePo);
         if (count > 0) {

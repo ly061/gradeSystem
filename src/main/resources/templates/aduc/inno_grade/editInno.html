@@ -224,19 +224,11 @@
                                     <form th:action="@{/inno/editPage/id}" class="form-x" method="post">
                                         <input name="id" type="hidden" th:value="${inno.id}"/>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>材料编号:</label>
-                                            </div>
-                                            <div>
                                                 <input type="text" class="input w-50" th:value="${inno.innoId}" name="innoId" data-validate="required:请输入材料编号" />
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>材料类型:</label>
-                                            </div>
-                                            <div class="field">
                                                 <select name="innoVar" class="input w-50">
                                                     <option value="请选择材料类型">请选择材料类型</option>
                                                     <option th:selected="${inno.innoVar eq '科研训练'}" value="科研训练">科研训练</option>
@@ -244,42 +236,22 @@
                                                     <option th:selected="${inno.innoVar eq '创业实践'}" value="创业实践">创业实践</option>
                                                     <option th:selected="${inno.innoVar eq '创业训练'}" value="创业训练">创业训练</option>
                                                 </select>
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>材料名称:</label>
-                                            </div>
-                                            <div>
                                                 <input type="text" class="input w-50" th:value="${inno.innoName}" name="innoName" data-validate="required:请输入材料名称"/>
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>材料内容:</label>
-                                            </div>
-                                            <div>
                                                 <input type="text" class="input w-50" th:value="${inno.innoContent}" name="innoContent" data-validate="required:请输入材料内容"/>
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>日期:</label>
-                                            </div>
-                                            <div>
                                                 <input type="date" class="layui-input" id="i1" placeholder="yyyy-MM-dd" th:value="${inno.innoDate}" name="innoDate"
                                                        style="height:30px;width:180px;" data-validate="required:日期不能为空"/>
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>级别:</label>
-                                            </div>
-                                            <div class="field">
                                                 <select name="innoRank" class="input w50">
                                                     <option value="请选择级别">请选择级别</option>
                                                     <option th:selected="${inno.innoRank eq '国家级'}" value="国家级">国家级</option>
@@ -288,14 +260,9 @@
                                                     <option th:selected="${inno.innoRank eq '校级'}" value="校级">校级</option>
                                                     <option th:selected="${inno.innoRank eq '院级'}" value="院级">院级</option>
                                                 </select>
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>等级:</label>
-                                            </div>
-                                            <div class="field">
                                                 <select name="innoLevel" class="input w-50">
                                                     <option value="请选择等级">请选择等级</option>
                                                     <option th:selected="${inno.innoLevel eq '一等奖'}" value="一等奖">一等奖</option>
@@ -304,14 +271,9 @@
                                                     <option th:selected="${inno.innoLevel eq '优秀奖'}" value="优秀奖">优秀奖</option>
                                                     <option th:selected="${inno.innoLevel eq '参赛奖'}" value="参赛奖">参赛奖</option>
                                                 </select>
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="label">
                                                 <label>分值:</label>
-                                            </div>
-                                            <div class="field">
                                                 <select name="innoValue" class="input w-50">
                                                     <option value="请选择分值">请选择分值</option>
                                                     <option th:selected="${inno.innoValue eq '5分'}" value="5分">5分</option>
@@ -320,8 +282,6 @@
                                                     <option th:selected="${inno.innoValue eq '1分'}" value="1分">1分</option>
                                                     <option th:selected="${inno.innoValue eq '0.5分'}" value="0.5分">0.5分</option>
                                                 </select>
-                                                <div class="tips"></div>
-                                            </div>
                                         </div>
 
                                         <input type="submit" class="btn btn-outline-success btn-sm" th:onclick="click()" th:value="编辑">
